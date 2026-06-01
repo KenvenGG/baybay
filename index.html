@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>残酷育儿模拟器</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="setup" class="setup">
+        <div class="setup__intro">
+          <p class="eyebrow">从出生到一岁</p>
+          <h1>残酷育儿模拟器</h1>
+          <p>
+            在金钱、睡眠和情绪都不够用的 365 天里，做每一个看似普通却很要命的决定。
+          </p>
+        </div>
+
+        <div class="setup-waiting">
+          <p>先选择家庭 / 职工模式，再进行开局采购。</p>
+        </div>
+      </section>
+
+      <section id="game" class="game hidden">
+        <aside class="sidebar">
+          <div class="brand-block">
+            <p class="eyebrow">残酷育儿模拟器</p>
+            <h1 id="stageTitle">新生儿期</h1>
+            <p id="stageHint">黄疸期持续中，夜醒更频繁。</p>
+          </div>
+
+          <div class="time-card">
+            <div>
+              <span>第 <strong id="dayText">1</strong> 天</span>
+              <strong id="clockText">06:00</strong>
+            </div>
+            <div class="speed-row" id="speedControls"></div>
+          </div>
+
+          <div class="resource-grid">
+            <div>
+              <span>资金</span>
+              <strong id="moneyText">0</strong>
+            </div>
+            <div>
+              <span>父母精力</span>
+              <strong id="parentEnergyText">100</strong>
+            </div>
+            <div>
+              <span>父母情绪</span>
+              <strong id="parentMoodText">100</strong>
+            </div>
+          </div>
+
+          <nav class="tabs" aria-label="信息面板">
+            <button class="tab is-active" data-tab="log">日志</button>
+            <button class="tab" data-tab="guide">百科</button>
+          </nav>
+          <div id="logPanel" class="tab-panel log-panel"></div>
+          <div id="guidePanel" class="tab-panel guide-panel hidden"></div>
+        </aside>
+
+        <section class="nursery">
+          <div id="dangerPulse" class="danger-pulse"></div>
+          <canvas id="babyCanvas" width="520" height="420" aria-label="婴儿状态画面"></canvas>
+          <button id="comfortBaby" class="comfort-button" title="轻拍安抚">轻拍安抚</button>
+        </section>
+
+        <section class="controls">
+          <div id="stats" class="stats"></div>
+          <div id="actions" class="actions"></div>
+        </section>
+      </section>
+    </main>
+
+    <div id="familyModal" class="modal" role="dialog" aria-modal="true">
+      <div class="modal__box">
+        <p class="eyebrow">开局选择</p>
+        <h2>选择职工模式</h2>
+        <p>先选择单职工或双职工，再输入可用于育儿第一年的家庭总收入。</p>
+        <div id="familyOptions" class="option-grid"></div>
+        <label class="income-field" for="familyIncome">
+          <span>家庭总收入</span>
+          <input id="familyIncome" type="number" min="0" step="100" inputmode="numeric" placeholder="例如 80000" />
+        </label>
+        <button id="confirmFamily" class="primary-button setup-action" disabled>确认并进入采购</button>
+      </div>
+    </div>
+
+    <div id="purchaseModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal__box modal__box--wide">
+        <p class="eyebrow">开局采购</p>
+        <h2>为第一年准备物资</h2>
+        <p>每类物品必须选择一档，预算和长期属性会一起变化。</p>
+        <div class="purchase-modal-grid">
+          <div id="purchaseOptions" class="purchase-list"></div>
+          <section class="panel panel--summary">
+            <h2>预算预览</h2>
+            <div class="money-preview">
+              <span>剩余资金</span>
+              <strong id="setupMoney">0</strong>
+            </div>
+            <div id="setupEffects" class="effect-list"></div>
+            <button id="startGame" class="primary-button">开始第 1 天</button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div id="eventModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal__box">
+        <p class="eyebrow" id="eventPhase">突发事件</p>
+        <h2 id="eventTitle"></h2>
+        <p id="eventBody"></p>
+        <div id="eventChoices" class="choice-list"></div>
+      </div>
+    </div>
+
+    <div id="endingModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal__box ending">
+        <p class="eyebrow">结局</p>
+        <h2 id="endingTitle"></h2>
+        <p id="endingBody"></p>
+        <button id="restartGame" class="primary-button">重新开始</button>
+      </div>
+    </div>
+
+    <script src="./config.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>

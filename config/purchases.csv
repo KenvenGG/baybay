@@ -1,0 +1,13 @@
+category,categoryLabel,id,name,cost,feedBonus,dailyMilk,safetyCap,comfortDecayReduction,dailyDiaper,healthBonus,medicalDiscount,note
+feeding,🍼 喂养,low,经济实用,500,5,0,,,,,,"喂奶额外 +5 饱腹"
+feeding,🍼 喂养,mid,主流品质,15000,10,20,,,,,,"喂奶 +10，每日奶粉费 20"
+feeding,🍼 喂养,high,顶配无忧,38000,15,50,,,,,,"喂奶 +15，每日奶粉费 50"
+gear,🛏️ 大件,low,二手基础,1800,,,0,,,,"无额外安全加成"
+gear,🛏️ 大件,mid,主流新购,4300,,,5,,,,"安全感上限 +5"
+gear,🛏️ 大件,high,顶配大件,28500,,,12,,,,"安全感上限 +12"
+supplies,🧻 消耗品,low,平价消耗,5700,,,,0,8,,,"每日尿布费 8"
+supplies,🧻 消耗品,mid,主流消耗,10000,,,,0.3,15,,,"舒适衰减 -0.3，每日 15"
+supplies,🧻 消耗品,high,高端消耗,17000,,,,0.5,25,,,"舒适衰减 -0.5，每日 25"
+medical,🏥 医疗,low,基础医疗,4100,,,,,,0,1,看病不打折
+medical,🏥 医疗,mid,疫苗加强,10000,,,,,,3,0.7,"健康 +3，医疗费 7 折"
+medical,🏥 医疗,high,保险拉满,35500,,,,,,8,0,"健康 +8，事件医疗费全免"

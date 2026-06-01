@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 960" role="img" aria-label="dim nursery room background">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#222b34"/>
+      <stop offset="0.55" stop-color="#171d25"/>
+      <stop offset="1" stop-color="#10141a"/>
+    </linearGradient>
+    <radialGradient id="lamp" cx="0.22" cy="0.22" r="0.44">
+      <stop offset="0" stop-color="#f1b56a" stop-opacity="0.26"/>
+      <stop offset="0.42" stop-color="#b86b46" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="paper" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M0 64 L64 0 M-20 20 L20 -20 M44 84 L84 44" stroke="#ffffff" stroke-opacity="0.035" stroke-width="2"/>
+      <circle cx="12" cy="50" r="2" fill="#ffffff" fill-opacity="0.03"/>
+      <circle cx="48" cy="22" r="1.5" fill="#ffffff" fill-opacity="0.035"/>
+    </pattern>
+  </defs>
+  <rect width="1440" height="960" fill="url(#wall)"/>
+  <rect width="1440" height="690" fill="url(#paper)" opacity="0.8"/>
+  <rect width="1440" height="960" fill="url(#lamp)"/>
+  <rect y="690" width="1440" height="270" fill="#0b0f14"/>
+  <path d="M0 690 H1440" stroke="#3a2d27" stroke-opacity="0.55" stroke-width="3"/>
+  <g opacity="0.38">
+    <rect x="78" y="178" width="150" height="210" rx="12" fill="#10161d" stroke="#54616a" stroke-opacity="0.45"/>
+    <path d="M108 236 H198 M108 286 H198 M108 336 H178" stroke="#6c7780" stroke-opacity="0.38" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="1120" cy="210" r="74" fill="#0d1218" stroke="#47525c" stroke-opacity="0.55"/>
+    <path d="M1120 170 V210 L1160 230" stroke="#79828a" stroke-opacity="0.42" stroke-width="7" stroke-linecap="round"/>
+    <rect x="1030" y="504" width="230" height="154" rx="18" fill="#0d1218" stroke="#43505b" stroke-opacity="0.5"/>
+    <rect x="1060" y="532" width="170" height="18" rx="9" fill="#6f8790" opacity="0.28"/>
+    <rect x="1060" y="574" width="115" height="18" rx="9" fill="#6f8790" opacity="0.18"/>
+  </g>
+  <g opacity="0.5">
+    <ellipse cx="720" cy="754" rx="360" ry="74" fill="#000000" opacity="0.34"/>
+    <path d="M372 630 C430 592 1010 592 1068 630 L1012 758 C942 794 498 794 428 758 Z" fill="#151b22" stroke="#56616a" stroke-opacity="0.32"/>
+    <path d="M420 632 C512 666 928 666 1020 632" fill="none" stroke="#76818a" stroke-opacity="0.22" stroke-width="12"/>
+  </g>
+  <rect width="1440" height="960" fill="#000000" opacity="0.16"/>
+</svg>

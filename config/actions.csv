@@ -1,0 +1,10 @@
+id,icon,name,cooldown,cost,parent,unlockDay,effect_hunger,effect_energy,effect_comfort,effect_security,effect_health,effect_development,effect_parentEnergy,effect_parentMood
+feed,🍼,喂奶,7,6,false,,,,22,,4,7,,,
+diaper,🧷,换尿布,3,3,false,,,,,18,,2,,
+sleep,🌙,哄睡,10,5,false,,,,,28,5,,1.5,,
+play,🧸,陪玩,5,7,false,,,-4,-6,,11,,3.5,,
+burp,👋,拍嗝,2.5,2,false,,,,,10,2,,,,
+massage,💆,抚触,6,4,false,,,,4,9,9,1.5,,,
+bath,🛁,洗澡,13,6,false,,,-4,,14,,2.5,,
+rest,☕,休息,18,-12,true,,,,,,,,,22,7
+solid,🥣,辅食,9,5,false,,181,,,,14,,2.5,,
