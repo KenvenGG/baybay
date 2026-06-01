@@ -1,4 +1,4 @@
-pool,eventTitle,eventBody,choiceLabel,choiceDesc,choiceCost,choiceMedical,effect_hunger,effect_energy,effect_comfort,effect_security,effect_health,effect_development
+﻿pool,eventTitle,eventBody,choiceLabel,choiceDesc,choiceCost,choiceMedical,effect_hunger,effect_energy,effect_comfort,effect_security,effect_health,effect_development
 newborn,脐带红肿,"脐带周围有点红，宝宝一碰就哭。",酒精消毒并保持干燥,"免费，健康 +2",0,false,,,,,2,
 newborn,脐带红肿,"脐带周围有点红，宝宝一碰就哭。",买药膏并观察,"-200 元，健康 +4",200,true,,,,,4,
 newborn,脐带红肿,"脐带周围有点红，宝宝一碰就哭。",多洗澡冲干净,"错误，健康 -4",0,false,,,,,-4,

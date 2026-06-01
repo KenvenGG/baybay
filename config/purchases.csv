@@ -1,4 +1,4 @@
-category,categoryLabel,id,name,cost,feedBonus,dailyMilk,safetyCap,comfortDecayReduction,dailyDiaper,healthBonus,medicalDiscount,note
+﻿category,categoryLabel,id,name,cost,feedBonus,dailyMilk,safetyCap,comfortDecayReduction,dailyDiaper,healthBonus,medicalDiscount,note
 feeding,🍼 喂养,low,经济实用,500,5,0,,,,,,"喂奶额外 +5 饱腹"
 feeding,🍼 喂养,mid,主流品质,15000,10,20,,,,,,"喂奶 +10，每日奶粉费 20"
 feeding,🍼 喂养,high,顶配无忧,38000,15,50,,,,,,"喂奶 +15，每日奶粉费 50"

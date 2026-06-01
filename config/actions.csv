@@ -1,4 +1,4 @@
-id,icon,name,cooldown,cost,parent,unlockDay,effect_hunger,effect_energy,effect_comfort,effect_security,effect_health,effect_development,effect_parentEnergy,effect_parentMood
+﻿id,icon,name,cooldown,cost,parent,unlockDay,effect_hunger,effect_energy,effect_comfort,effect_security,effect_health,effect_development,effect_parentEnergy,effect_parentMood
 feed,🍼,喂奶,7,6,false,,,,22,,4,7,,,
 diaper,🧷,换尿布,3,3,false,,,,,18,,2,,
 sleep,🌙,哄睡,10,5,false,,,,,28,5,,1.5,,
