@@ -34,6 +34,15 @@ let derived = {};
 
 const $ = (id) => document.getElementById(id);
 
+function escapeHtml(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function selectedTier(category) {
   return PURCHASES[category].tiers.find((tier) => tier.id === state.setup.tiers[category]);
 }
@@ -73,8 +82,8 @@ function calcDerived() {
 function initSetup() {
   $("familyOptions").innerHTML = FAMILIES.map((family) => `
     <button class="option-card ${family.id === state.setup.family?.id ? "is-selected" : ""}" data-family="${family.id}">
-      <strong>${family.name}</strong>
-      <span>父母精力上限 ${family.energyMax} / 恢复倍率 ${family.recovery}<br>${family.note}</span>
+      <strong>${escapeHtml(family.name)}</strong>
+      <span>${escapeHtml(`父母精力上限 ${family.energyMax} / 恢复倍率 ${family.recovery}`)}<br>${escapeHtml(family.note)}</span>
     </button>
   `).join("");
 
@@ -97,12 +106,12 @@ function initSetup() {
 function renderPurchaseOptions() {
   $("purchaseOptions").innerHTML = Object.entries(PURCHASES).map(([key, category]) => `
     <div class="purchase-category">
-      <h3>${category.label}</h3>
+      <h3>${escapeHtml(category.label)}</h3>
       <div class="tier-row">
         ${category.tiers.map((tier) => `
           <button class="tier-card ${tier.id === state.setup.tiers[key] ? "is-selected" : ""}" data-category="${key}" data-tier="${tier.id}">
-            <strong>${tier.name}</strong>
-            <span>${money(tier.cost)}<br>${tier.note}</span>
+            <strong>${escapeHtml(tier.name)}</strong>
+            <span>${escapeHtml(money(tier.cost))}<br>${escapeHtml(tier.note)}</span>
           </button>
         `).join("")}
       </div>
@@ -131,7 +140,7 @@ function updateSetupSummary() {
     `每日固定消耗：${money(derived.dailyMilk + derived.dailyDiaper)}`,
     `安全感上限：${derived.safetyCap}`,
     `医疗折扣：${derived.medicalDiscount === 0 ? "全免" : `${Math.round(derived.medicalDiscount * 10)} 折`}`,
-  ].map((line) => `<span>${line}</span>`).join("");
+  ].map((line) => `<span>${escapeHtml(line)}</span>`).join("");
 }
 
 function confirmFamilySelection() {
@@ -294,8 +303,8 @@ function showEvent(evt) {
     const locked = realCost > state.money && realCost > 0;
     return `
       <button class="choice" data-choice="${index}" ${locked ? "disabled" : ""}>
-        <strong>${option.label}${realCost > 0 ? `（${money(realCost)}）` : ""}</strong>
-        <span>${locked ? "资金不足，无法选择。" : option.desc}</span>
+        <strong>${escapeHtml(option.label)}${realCost > 0 ? `（${escapeHtml(money(realCost))}）` : ""}</strong>
+        <span>${locked ? "资金不足，无法选择。" : escapeHtml(option.desc)}</span>
       </button>
     `;
   }).join("");
@@ -397,7 +406,7 @@ function renderStats() {
     const level = pct < 25 ? "is-bad" : pct < 45 ? "is-warn" : "";
     return `
       <div class="stat">
-        <div class="stat__label"><span>${label}</span><strong>${Math.round(value)}</strong></div>
+        <div class="stat__label"><span>${escapeHtml(label)}</span><strong>${Math.round(value)}</strong></div>
         <div class="bar ${level}"><span style="width:${pct}%"></span></div>
       </div>
     `;
@@ -419,8 +428,8 @@ function renderActions() {
     const pct = cooldown > 0 ? (cooldown / action.cooldown) * 100 : 0;
     return `
       <button class="action ${suggested ? "is-suggested" : ""}" data-action="${action.id}" ${disabled ? "disabled" : ""}>
-        <span class="action__icon">${action.icon}</span>
-        <span class="action__name">${action.name}</span>
+        <span class="action__icon">${escapeHtml(action.icon)}</span>
+        <span class="action__name">${escapeHtml(action.name)}</span>
         <span class="action__meta">${locked ? "6 月后解锁" : `冷却 ${action.cooldown}s / ${action.cost < 0 ? "恢复" : "消耗"} ${Math.abs(action.cost)}`}</span>
         <span class="cooldown" style="width:${pct}%"></span>
       </button>
@@ -448,8 +457,8 @@ function setSpeed(speed) {
 
 function renderGuide() {
   $("guidePanel").innerHTML = STAGES.map((stage) => `
-    <h3>${stage.name}</h3>
-    <p>${stage.guide}</p>
+    <h3>${escapeHtml(stage.name)}</h3>
+    <p>${escapeHtml(stage.guide)}</p>
   `).join("");
 }
 
@@ -757,7 +766,15 @@ function endGame(title, body) {
 function log(message, important = false) {
   const entry = document.createElement("div");
   entry.className = "log-entry";
-  entry.innerHTML = important ? `<strong>${message}</strong>` : message;
+
+  if (important) {
+    const strong = document.createElement("strong");
+    strong.textContent = message;
+    entry.appendChild(strong);
+  } else {
+    entry.textContent = message;
+  }
+
   $("logPanel").prepend(entry);
 }
 

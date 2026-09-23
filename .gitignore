@@ -12,3 +12,12 @@ desktop.ini
 # 临时文件
 *.tmp
 *.log
+
+# 本地环境与密钥
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+secrets/
